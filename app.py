@@ -22,7 +22,7 @@ st.set_page_config(
     layout="wide",
 )
 
-DEFAULT_PDF_PATH = os.path.join(os.path.dirname(__file__), "data", "lecture.pdf")
+DEFAULT_PDF_PATH = os.path.join(os.path.dirname(__file__), "df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf")
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 LOCAL_MODELS = {
