@@ -105,7 +105,7 @@ def load_llm(model_id: str, max_new_tokens: int, temperature: float):
         max_new_tokens=max_new_tokens,
         temperature=max(temperature, 0.01),
         do_sample=temperature > 0,
-        return_full_text=False,
+        
     )
     return HuggingFacePipeline(pipeline=pipe)
 
