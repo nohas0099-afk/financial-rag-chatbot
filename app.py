@@ -118,11 +118,13 @@ def build_qa_chain(_vectorstore, _llm, k: int):
     retriever = _vectorstore.as_retriever(search_kwargs={"k": k})
 
     template = """
-You are a helpful assistant.
+You are an expert financial assistant.
 
-Answer the question using ONLY the context below.
+Use ONLY the information in the context below.
 
-If the answer is not in the context, say:
+Write a clear and complete answer in your own words.
+Do NOT copy sentences directly from the context.
+If the answer is not available in the context, reply:
 "I don't know based on the provided document."
 
 Context:
@@ -131,7 +133,7 @@ Context:
 Question:
 {question}
 
-Answer:
+Helpful Answer:
 """
 
     PROMPT = PromptTemplate(
@@ -148,8 +150,6 @@ Answer:
     )
 
     return chain
-
-
 # ----------------------------------------------------------------------
 # Sidebar controls
 # ----------------------------------------------------------------------
