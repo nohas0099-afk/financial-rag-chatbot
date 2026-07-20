@@ -113,14 +113,40 @@ def load_llm(model_id: str, max_new_tokens: int, temperature: float):
 @st.cache_resource(show_spinner=False)
 def build_qa_chain(_vectorstore, _llm, k: int):
     from langchain.chains import RetrievalQA
+    from langchain.prompts import PromptTemplate
 
     retriever = _vectorstore.as_retriever(search_kwargs={"k": k})
+
+    template = """
+You are a helpful assistant.
+
+Answer the question using ONLY the context below.
+
+If the answer is not in the context, say:
+"I don't know based on the provided document."
+
+Context:
+{context}
+
+Question:
+{question}
+
+Answer:
+"""
+
+    PROMPT = PromptTemplate(
+        template=template,
+        input_variables=["context", "question"],
+    )
+
     chain = RetrievalQA.from_chain_type(
         llm=_llm,
         retriever=retriever,
         chain_type="stuff",
+        chain_type_kwargs={"prompt": PROMPT},
         return_source_documents=True,
     )
+
     return chain
 
 
