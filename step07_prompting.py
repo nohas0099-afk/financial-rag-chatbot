@@ -11,7 +11,7 @@ def load_llm():
     model = AutoModelForCausalLM.from_pretrained(
         model_id,
         device_map="auto",
-        load_in_8bit=True
+        
     )
     pipe = pipeline(
         "text-generation",
