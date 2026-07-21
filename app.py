@@ -1,9 +1,8 @@
 import os
 import streamlit as st
-from 05_create_chroma_store import build_and_save_vectorstore
-from 06_retrieve_context import load_retriever
-from 07_prompting import load_llm, create_rag_chain
-
+from step05_create_chroma_store import build_and_save_vectorstore
+from step06_retrieve_context import load_retriever
+from step07_prompting import load_llm, create_rag_chain
 st.set_page_config(page_title="MIT 15.401 Finance Theory RAG", layout="wide")
 st.title("MIT 15.401 Finance Theory QA Assistant")
 
