@@ -1,4 +1,4 @@
-from langchainhub import hub
+from langchain import hub
 from langchain.llms.huggingface_pipeline import HuggingFacePipeline
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from langchain.chains import ConversationalRetrievalChain
