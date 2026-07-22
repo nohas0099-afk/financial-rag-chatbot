@@ -1,7 +1,7 @@
 langchain
 langchain-community
 langchain-text-splitters
-langchainhub
+langchain-hub
 faiss-cpu
 pypdf
 sentence-transformers
