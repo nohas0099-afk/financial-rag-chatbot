@@ -8,14 +8,16 @@ def load_llm():
     token = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 
     llm = HuggingFaceEndpoint(
-        repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-        huggingfacehub_api_token=token,
-        task="text-generation",
-        temperature=0.1,
-        max_new_tokens=128,
-    )
+    repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    huggingfacehub_api_token=token,
+    task="text-generation",
+    temperature=0.1,
+    max_new_tokens=128,
+)
 
-    return llm
+print("HF Token loaded:", token[:10])
+
+return llm
 
 
 def create_rag_chain(llm, retriever):
