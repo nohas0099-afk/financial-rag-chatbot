@@ -26,7 +26,7 @@ def load_llm():
     llm = HuggingFaceEndpoint(
         repo_id="Qwen/Qwen2.5-7B-Instruct",  # swap for any model you've verified works, see note below
         huggingfacehub_api_token=token,
-        provider="auto",       # let HF pick a provider that currently serves this model
+        provider="hf-inference",  # HF's own first-party serverless inference (not a paid third-party router)
         temperature=0.1,
         max_new_tokens=256,
     )
@@ -34,6 +34,20 @@ def load_llm():
     chat_model = ChatHuggingFace(llm=llm)
  
     return chat_model
+ 
+ 
+def create_rag_chain(llm, retriever):
+    memory = ConversationBufferMemory(
+        memory_key="chat_history",
+        output_key="answer",
+        return_messages=True,
+    )
+ 
+    return ConversationalRetrievalChain.from_llm(
+        llm=llm,
+        retriever=retriever,
+        memory=memory,
+    )
  
  
 def create_rag_chain(llm, retriever):
