@@ -6,7 +6,7 @@ from langchain.memory import ConversationBufferMemory
 
 def load_llm():
     """Loads quantized language model using Hugging Face Pipeline."""
-    model_id = "pankajmathur/orca_mini_3b"
+    model_id = "model_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
     tokenizer = AutoTokenizer.from_pretrained(model_id)
     model = AutoModelForCausalLM.from_pretrained(
         model_id,
