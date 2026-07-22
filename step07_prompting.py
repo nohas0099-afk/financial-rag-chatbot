@@ -1,40 +1,38 @@
-import streamlit as st
-from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
+from langchain_huggingface import HuggingFacePipeline
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
+from transformers import pipeline
  
  
 def load_llm():
-    token = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
- 
-    # IMPORTANT:
-    # The old "api-inference.huggingface.co" text-generation endpoint used by
-    # `task="text-generation"` is Hugging Face's legacy Inference API and is
-    # being retired for more and more models — that's what caused the
-    # "Failed to resolve 'api-inference.huggingface.co'" error you saw.
+    # Runs entirely on-device (CPU) -- no Hugging Face Inference Providers,
+    # no API token billing, no "402 Payment Required", no "model not
+    # supported by provider" errors. Trade-off: answer quality is lower
+    # than a 7B+ hosted model since flan-t5-small is only ~80M parameters.
     #
-    # HF now routes serverless inference through its "Inference Providers"
-    # system (router.huggingface.co). langchain-huggingface talks to that
-    # automatically if you DON'T pass task="text-generation" and instead
-    # wrap the endpoint in ChatHuggingFace, which uses the chat-completions
-    # style API.
-    #
-    # Also: TinyLlama-1.1B-Chat is a small hobby model that is frequently
-    # NOT hosted/warm on the free serverless tier, which causes failures on
-    # its own even once the URL issue is fixed. Swap in a model you've
-    # confirmed is available (see note below).
-    llm = HuggingFaceEndpoint(
-        repo_id="Qwen/Qwen2.5-7B-Instruct",  # swap for any model you've verified works, see note below
-        huggingfacehub_api_token=token,
-        provider="hf-inference",  # HF's own first-party serverless inference (not a paid third-party router)
-        temperature=0.1,
+    # If your deployment has more RAM headroom, try "google/flan-t5-base"
+    # (~250M params, noticeably better answers) by changing the model
+    # name below.
+    pipe = pipeline(
+        "text2text-generation",
+        model="google/flan-t5-small",
         max_new_tokens=256,
     )
+    return HuggingFacePipeline(pipeline=pipe)
  
-    chat_model = ChatHuggingFace(llm=llm)
  
-    return chat_model
+def create_rag_chain(llm, retriever):
+    memory = ConversationBufferMemory(
+        memory_key="chat_history",
+        output_key="answer",
+        return_messages=True,
+    )
  
+    return ConversationalRetrievalChain.from_llm(
+        llm=llm,
+        retriever=retriever,
+        memory=memory,
+    )
  
 def create_rag_chain(llm, retriever):
     memory = ConversationBufferMemory(
