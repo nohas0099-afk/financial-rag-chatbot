@@ -1,7 +1,3 @@
---extra-index-url https://download.pytorch.org/whl/cpu
-torch
-transformers
-accelerate
 langchain
 langchain-community
 langchain-text-splitters
@@ -9,3 +5,5 @@ faiss-cpu
 pypdf
 sentence-transformers
 streamlit
+transformers
+accelerate
