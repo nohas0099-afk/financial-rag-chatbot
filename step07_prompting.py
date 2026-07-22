@@ -8,9 +8,9 @@ def load_llm():
     token = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 
     llm = HuggingFaceEndpoint(
-        repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+        repo_id="google/flan-t5-base",
         huggingfacehub_api_token=token,
-        task="text-generation",
+        task="text2text-generation",
         temperature=0.1,
         max_new_tokens=128,
     )
