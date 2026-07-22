@@ -14,7 +14,7 @@ from huggingface_hub import InferenceClient
 TOKEN = os.environ.get("HUGGINGFACEHUB_API_TOKEN", "hf_xxx...")
 MODEL = "Qwen/Qwen2.5-7B-Instruct"  # try changing this if it fails
  
-client = InferenceClient(model=MODEL, token=TOKEN, provider="auto")
+client = InferenceClient(model=MODEL, token=TOKEN, provider="hf-inference")
  
 try:
     response = client.chat_completion(
@@ -34,3 +34,4 @@ except Exception as e:
         "If you see an auth/403 error, check your token has 'Inference' "
         "permission enabled at https://huggingface.co/settings/tokens."
     )
+ 
