@@ -39,8 +39,15 @@ if user_query := st.chat_input("Ask a question about Fixed-Income Securities..."
 
     with st.chat_message("assistant"):
         with st.spinner("Generating answer..."):
-            response = rag_chain({"question": user_query})
-            answer = response["answer"]
-            st.markdown(answer)
+            try:
+    response = rag_chain.invoke({"question": user_query})
+
+    st.write(response)   # مؤقتًا لمعرفة ماذا يرجع الـ RAG
+
+    answer = response.get("answer", "No answer returned.")
+    st.markdown(answer)
+
+except Exception as e:
+    st.error(str(e))
             
     st.session_state.messages.append({"role": "assistant", "content": answer})
