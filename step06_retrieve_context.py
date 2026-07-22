@@ -1,5 +1,5 @@
 from langchain_community.vectorstores import FAISS
-from 04_vector_representation import get_embedding_model
+from step04_vector_representation import get_embedding_model
 
 def load_retriever(store_path: str, k: int = 4):
     """Loads a saved FAISS index and returns a retriever."""
