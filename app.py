@@ -7,7 +7,7 @@ st.set_page_config(page_title="MIT 15.401 Finance Theory RAG", layout="wide")
 st.title("MIT 15.401 Finance Theory QA Assistant")
 
 INDEX_PATH = "faiss_index"
-PDF_PATH = "15.401_Finance_Theory.pdf"
+PDF_PATH = "/content/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf"
 
 @st.cache_resource
 def initialize_rag():
