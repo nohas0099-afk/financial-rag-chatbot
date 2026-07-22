@@ -53,5 +53,6 @@ def create_rag_chain(llm, retriever):
         retriever=retriever,
         memory=memory,
         combine_docs_chain_kwargs={"prompt": QA_PROMPT},
+        return_source_documents=True,
     )
  
