@@ -16,7 +16,7 @@ def load_llm():
         "text-generation",
         model=model,
         tokenizer=tokenizer,
-        max_new_tokens=256
+        max_new_tokens=128
     )
     return HuggingFacePipeline(pipeline=pipe)
 def create_rag_chain(llm, retriever):
