@@ -6,18 +6,18 @@ from langchain.memory import ConversationBufferMemory
 
 def load_llm():
     """Loads quantized language model using Hugging Face Pipeline."""
-    model_id = "google/flan-t5-small"
+    model_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
     tokenizer = AutoTokenizer.from_pretrained(model_id)
     model = AutoModelForCausalLM.from_pretrained(
-        model_id,
-        device_map="auto",
-        
-    )
+    model_id,
+    torch_dtype="auto",
+    device_map="auto",
+)
     pipe = pipeline(
         "text-generation",
         model=model,
         tokenizer=tokenizer,
-        max_new_tokens=1024
+        max_new_tokens=256
     )
     return HuggingFacePipeline(pipeline=pipe)
 
