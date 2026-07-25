@@ -235,6 +235,36 @@ h6 {
 [data-testid="stFileUploader"] *{
     color: white !important;
 }
+/* ---------- Chat Area ---------- */
+
+/* الخلفية البيضاء أسفل الصفحة */
+[data-testid="stBottom"] {
+    background: #A67C6B !important;
+}
+
+/* المنطقة التي تحتوي على Chat Input */
+[data-testid="stChatInput"] {
+    background: #A67C6B !important;
+    border-top: none !important;
+}
+
+/* مربع الكتابة */
+[data-testid="stChatInput"] textarea {
+    background: #6D4C41 !important;
+    color: #FFFFFF !important;
+}
+
+/* زر الإرسال */
+[data-testid="stChatInput"] button {
+    background: #6D4C41 !important;
+    color: white !important;
+}
+/* جميع الأزرار */
+.stButton > button {
+    background: #8B6B5C !important;
+    color: #FFFFFF !important;
+    border: 1px solid #C2A38F !important;
+}
 </style>
 """
 
