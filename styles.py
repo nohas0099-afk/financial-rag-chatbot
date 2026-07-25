@@ -193,6 +193,19 @@ h6 {
 .doc-item__pages {
     color: #FFFFFF;
 }
+/* ---------- Streamlit Buttons ---------- */
+.stButton > button {
+    background: #6D4C41 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #A1887F !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+}
+
+.stButton > button:hover {
+    background: #7B564B !important;
+    color: #FFFFFF !important;
+}
 </style>
 """
 
