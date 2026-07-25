@@ -159,22 +159,18 @@ h6 {
 .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
 .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
 
-/* ---------- Upload ---------- */
-.upload-card {
-    border: 1px solid var(--glass-border); background: var(--glass-bg);
-    border-radius: 12px; padding: 10px 14px; margin-bottom: 8px;
+/* ---------- File Uploader Button Fix ---------- */
+[data-testid="stFileUploader"] button {
+    background-color: #6D4C41 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #C2A38F !important;
+    border-radius: 8px !important;
 }
-.upload-card--success { border-color: rgba(16,185,129,0.4); }
-.upload-card--error { border-color: rgba(239,68,68,0.4); }
-.upload-card__name { font-weight: 600; font-size: 0.9rem; }
-.upload-card__meta { font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px; }
-.upload-format-row { display: flex; gap: 6px; margin: 6px 0 14px 0; }
-.format-chip {
-    font-size: 0.72rem; padding: 3px 9px; border-radius: 999px;
-    border: 1px solid var(--glass-border); color: var(--text-secondary);
-}
-.format-chip--active { color: var(--emerald); border-color: rgba(16,185,129,0.4); }
 
+[data-testid="stFileUploader"] button:hover {
+    background-color: #8B6B5C !important;
+    border-color: #DCC2A8 !important;
+}
 /* ---------- Sidebar sections ---------- */
 .sidebar-brand { display: flex; align-items: center; gap: 10px; padding: 6px 0 16px 0; }
 .sidebar-brand__logo {
