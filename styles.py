@@ -7,17 +7,17 @@ import streamlit as st
 THEME_CSS = """
 <style>
 :root {
-    --bg-primary: #4B2E2A;
-    --bg-secondary: #6D4C41;
+    --bg-primary: #6F4E37;
+    --bg-secondary: #8B6B5C;
 
-    --glass-bg: #5D4037;
-    --glass-border: #8D6E63;
+    --glass-bg: #8B6B5C;
+    --glass-border: #C2A38F;
 
-    --emerald: #D7B899;
-    --navy: #6D4C41;
+    --emerald: #DCC2A8;
+    --navy: #8B6B5C;
 
     --text-primary: #FFFFFF;
-    --text-secondary: #F5F5F5;
+    --text-secondary: #F8F5F2;
 
     --radius: 16px;
 }
@@ -26,11 +26,20 @@ THEME_CSS = """
 [data-testid="stToolbar"] {display: none;}
 .block-container {padding-top: 1.5rem; padding-bottom: 2rem; max-width: 1100px;}
 [data-testid="stAppViewContainer"]{
-background:linear-gradient(135deg,#2B1B22 0%,#4E342E 45%,#6D4C41 100%);
+    background: linear-gradient(
+        135deg,
+        #6F4E37 0%,
+        #8B6B5C 50%,
+        #A67C6B 100%
+    );
 }
 [data-testid="stSidebar"]{
-background:linear-gradient(180deg,#3E2723,#2B1B22);
-border-right:1px solid #8D6E63;
+    background: linear-gradient(
+        180deg,
+        #6F4E37,
+        #8B6B5C
+    );
+    border-right: 1px solid #C2A38F;
 }
 [data-testid="stChatInput"] textarea,
 [data-testid="stChatInput"]{
@@ -205,6 +214,26 @@ h6 {
 .stButton > button:hover {
     background: #7B564B !important;
     color: #FFFFFF !important;
+}
+/* تغيير لون مربع رفع الملفات */
+[data-testid="stFileUploaderDropzone"]{
+    background:#8B6B5C !important;
+    border:2px dashed #DCC2A8 !important;
+}
+
+[data-testid="stFileUploaderDropzone"] *{
+    color:#FFFFFF !important;
+}
+/* ---------- File Uploader ---------- */
+[data-testid="stFileUploader"],
+[data-testid="stFileUploaderDropzone"]{
+    background: #A67C6B !important;
+    border: 2px dashed #DCC2A8 !important;
+    border-radius: 12px !important;
+}
+
+[data-testid="stFileUploader"] *{
+    color: white !important;
 }
 </style>
 """
