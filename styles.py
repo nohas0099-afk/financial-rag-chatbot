@@ -1,3 +1,9 @@
+"""
+All CSS for the app lives here as a single injected block. Nothing in
+here touches the RAG pipeline -- purely presentational.
+"""
+import streamlit as st
+
 THEME_CSS = """
 <style>
 :root {
@@ -170,19 +176,15 @@ h6 {
 .format-chip--active { color: var(--emerald); border-color: rgba(16,185,129,0.4); }
 
 /* ---------- Sidebar sections ---------- */
-.sidebar-brand { display: flex; align-items: center; gap: 12px; padding: 6px 0 16px 0; }
+.sidebar-brand { display: flex; align-items: center; gap: 10px; padding: 6px 0 16px 0; }
 .sidebar-brand__logo {
-    width: 42px; height: 42px; border-radius: 10px;
+    width: 34px; height: 34px; border-radius: 10px;
     background: linear-gradient(135deg, var(--emerald), var(--navy));
-    display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
 }
-.sidebar-brand__name { 
-    font-weight: 700; 
-    font-size: 1.4rem !important; /* تكبير الخط هنا */
-    line-height: 1.2; 
-}
+.sidebar-brand__name { font-weight: 700; font-size: 1.02rem; line-height: 1.1; }
 .sidebar-brand__tag {
-    font-size: 0.95rem !important; /* تكبير الخط الفرعي هنا */
+    font-size: 0.72rem;
     color: #FFFFFF;
 }
 .sidebar-section-title {
@@ -214,7 +216,7 @@ h6 {
     color: #FFFFFF !important;
 }
 
-/* ---------- File Uploader ---------- */
+/* ---------- File Uploader & Browse Button Fix ---------- */
 [data-testid="stFileUploader"],
 [data-testid="stFileUploaderDropzone"]{
     background: #8B6B5C !important;
@@ -226,6 +228,7 @@ h6 {
     color: white !important;
 }
 
+/* تنسيق زر Browse files الأبيض */
 [data-testid="stFileUploader"] button {
     background-color: #6D4C41 !important;
     color: #FFFFFF !important;
@@ -239,25 +242,31 @@ h6 {
 }
 
 /* ---------- Chat Area ---------- */
+
+/* الخلفية البيضاء أسفل الصفحة */
 [data-testid="stBottom"] {
     background: #A67C6B !important;
 }
 
+/* المنطقة التي تحتوي على Chat Input */
 [data-testid="stChatInput"] {
     background: #A67C6B !important;
     border-top: none !important;
 }
 
+/* مربع الكتابة */
 [data-testid="stChatInput"] textarea {
     background: #6D4C41 !important;
     color: #FFFFFF !important;
 }
 
+/* زر الإرسال */
 [data-testid="stChatInput"] button {
     background: #6D4C41 !important;
     color: white !important;
 }
 
+/* إزالة الخلفية البيضاء بالكامل */
 [data-testid="stAppViewContainer"] > .main {
     background: transparent !important;
 }
@@ -266,8 +275,12 @@ h6 {
     background: transparent !important;
 }
 
+/* المنطقة البيضاء أسفل الشات */
 div.st-emotion-cache-qdbtli {
     background: #A67C6B !important;
 }
 </style>
 """
+
+def inject_theme():
+    st.markdown(THEME_CSS, unsafe_allow_html=True)
