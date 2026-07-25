@@ -7,14 +7,18 @@ import streamlit as st
 THEME_CSS = """
 <style>
 :root {
-    --bg-primary: #0B1220;
-    --bg-secondary: #111827;
-    --glass-bg: rgba(17, 24, 39, 0.55);
-    --glass-border: #374151;
-    --emerald: #10B981;
-    --navy: #1E3A8A;
+    --bg-primary: #2B1B22;
+    --bg-secondary: #3E2723;
+
+    --glass-bg: rgba(72, 45, 55, 0.85);
+    --glass-border: #8D6E63;
+
+    --primary: #B76E79;
+    --accent: #D4A373;
+
     --text-primary: #FFFFFF;
-    --text-secondary: #9CA3AF;
+    --text-secondary: #F3F4F6;
+
     --radius: 16px;
 }
 
@@ -22,15 +26,19 @@ THEME_CSS = """
 #MainMenu, header, footer {visibility: hidden; height: 0;}
 [data-testid="stToolbar"] {display: none;}
 .block-container {padding-top: 1.5rem; padding-bottom: 2rem; max-width: 1100px;}
-[data-testid="stAppViewContainer"] {background: radial-gradient(circle at 20% 0%, #101c34 0%, var(--bg-primary) 55%);}
-[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, var(--bg-secondary) 0%, #0b1220 100%);
-    border-right: 1px solid var(--glass-border);
+[data-testid="stAppViewContainer"]{
+background:linear-gradient(135deg,#2B1B22 0%,#4E342E 45%,#6D4C41 100%);
 }
-[data-testid="stChatInput"] textarea, [data-testid="stChatInput"] {
-    background: var(--glass-bg) !important;
-    border: 1px solid var(--glass-border) !important;
-    border-radius: 999px !important;
+[data-testid="stSidebar"]{
+background:linear-gradient(180deg,#3E2723,#2B1B22);
+border-right:1px solid #8D6E63;
+}
+[data-testid="stChatInput"] textarea,
+[data-testid="stChatInput"]{
+    background:rgba(74,44,42,.95)!important;
+    color:#FFFFFF!important;
+    border:2px solid #B76E79!important;
+    border-radius:999px!important;
 }
 html, body, [class*="css"] {
     color: var(--text-primary);
