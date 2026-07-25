@@ -1,9 +1,3 @@
-"""
-All CSS for the app lives here as a single injected block. Nothing in
-here touches the RAG pipeline -- purely presentational.
-"""
-import streamlit as st
-
 THEME_CSS = """
 <style>
 :root {
@@ -159,28 +153,36 @@ h6 {
 .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
 .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
 
-/* ---------- File Uploader Button Fix ---------- */
-[data-testid="stFileUploader"] button {
-    background-color: #6D4C41 !important;
-    color: #FFFFFF !important;
-    border: 1px solid #C2A38F !important;
-    border-radius: 8px !important;
+/* ---------- Upload ---------- */
+.upload-card {
+    border: 1px solid var(--glass-border); background: var(--glass-bg);
+    border-radius: 12px; padding: 10px 14px; margin-bottom: 8px;
 }
+.upload-card--success { border-color: rgba(16,185,129,0.4); }
+.upload-card--error { border-color: rgba(239,68,68,0.4); }
+.upload-card__name { font-weight: 600; font-size: 0.9rem; }
+.upload-card__meta { font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px; }
+.upload-format-row { display: flex; gap: 6px; margin: 6px 0 14px 0; }
+.format-chip {
+    font-size: 0.72rem; padding: 3px 9px; border-radius: 999px;
+    border: 1px solid var(--glass-border); color: var(--text-secondary);
+}
+.format-chip--active { color: var(--emerald); border-color: rgba(16,185,129,0.4); }
 
-[data-testid="stFileUploader"] button:hover {
-    background-color: #8B6B5C !important;
-    border-color: #DCC2A8 !important;
-}
 /* ---------- Sidebar sections ---------- */
-.sidebar-brand { display: flex; align-items: center; gap: 10px; padding: 6px 0 16px 0; }
+.sidebar-brand { display: flex; align-items: center; gap: 12px; padding: 6px 0 16px 0; }
 .sidebar-brand__logo {
-    width: 34px; height: 34px; border-radius: 10px;
+    width: 42px; height: 42px; border-radius: 10px;
     background: linear-gradient(135deg, var(--emerald), var(--navy));
-    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
 }
-.sidebar-brand__name { font-weight: 700; font-size: 1.02rem; line-height: 1.1; }
+.sidebar-brand__name { 
+    font-weight: 700; 
+    font-size: 1.4rem !important; /* تكبير الخط هنا */
+    line-height: 1.2; 
+}
 .sidebar-brand__tag {
-    font-size: 0.72rem;
+    font-size: 0.95rem !important; /* تكبير الخط الفرعي هنا */
     color: #FFFFFF;
 }
 .sidebar-section-title {
@@ -211,19 +213,11 @@ h6 {
     background: #7B564B !important;
     color: #FFFFFF !important;
 }
-/* تغيير لون مربع رفع الملفات */
-[data-testid="stFileUploaderDropzone"]{
-    background:#8B6B5C !important;
-    border:2px dashed #DCC2A8 !important;
-}
 
-[data-testid="stFileUploaderDropzone"] *{
-    color:#FFFFFF !important;
-}
 /* ---------- File Uploader ---------- */
 [data-testid="stFileUploader"],
 [data-testid="stFileUploaderDropzone"]{
-    background: #A67C6B !important;
+    background: #8B6B5C !important;
     border: 2px dashed #DCC2A8 !important;
     border-radius: 12px !important;
 }
@@ -231,37 +225,39 @@ h6 {
 [data-testid="stFileUploader"] *{
     color: white !important;
 }
-/* ---------- Chat Area ---------- */
 
-/* الخلفية البيضاء أسفل الصفحة */
+[data-testid="stFileUploader"] button {
+    background-color: #6D4C41 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #C2A38F !important;
+    border-radius: 8px !important;
+}
+
+[data-testid="stFileUploader"] button:hover {
+    background-color: #7B564B !important;
+    border-color: #DCC2A8 !important;
+}
+
+/* ---------- Chat Area ---------- */
 [data-testid="stBottom"] {
     background: #A67C6B !important;
 }
 
-/* المنطقة التي تحتوي على Chat Input */
 [data-testid="stChatInput"] {
     background: #A67C6B !important;
     border-top: none !important;
 }
 
-/* مربع الكتابة */
 [data-testid="stChatInput"] textarea {
     background: #6D4C41 !important;
     color: #FFFFFF !important;
 }
 
-/* زر الإرسال */
 [data-testid="stChatInput"] button {
     background: #6D4C41 !important;
     color: white !important;
 }
-/* جميع الأزرار */
-.stButton > button {
-    background: #8B6B5C !important;
-    color: #FFFFFF !important;
-    border: 1px solid #C2A38F !important;
-}
-/* إزالة الخلفية البيضاء بالكامل */
+
 [data-testid="stAppViewContainer"] > .main {
     background: transparent !important;
 }
@@ -269,13 +265,9 @@ h6 {
 .main .block-container {
     background: transparent !important;
 }
-/* المنطقة البيضاء أسفل الشات */
+
 div.st-emotion-cache-qdbtli {
     background: #A67C6B !important;
 }
 </style>
 """
-
-
-def inject_theme():
-    st.markdown(THEME_CSS, unsafe_allow_html=True)
