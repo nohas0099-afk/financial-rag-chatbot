@@ -7,21 +7,20 @@ import streamlit as st
 THEME_CSS = """
 <style>
 :root {
-    --bg-primary: #2C221D;
-    --bg-secondary: #3E2F28;
+    --bg-primary: #4B2E2A;
+    --bg-secondary: #6D4C41;
 
-    --glass-bg: rgba(62, 47, 40, 0.90);
-    --glass-border: #8B6B5C;
+    --glass-bg: #5D4037;
+    --glass-border: #8D6E63;
 
-    --emerald: #C49A6C;
-    --navy: #8B6B5C;
+    --emerald: #D7B899;
+    --navy: #6D4C41;
 
     --text-primary: #FFFFFF;
-    --text-secondary: #F8F5F2;
+    --text-secondary: #F5F5F5;
 
     --radius: 16px;
 }
-
 /* ---------- Streamlit chrome cleanup ---------- */
 #MainMenu, header, footer {visibility: hidden; height: 0;}
 [data-testid="stToolbar"] {display: none;}
@@ -40,8 +39,21 @@ border-right:1px solid #8D6E63;
     border:2px solid #B76E79!important;
     border-radius:999px!important;
 }
-html, body, [class*="css"] {
-    color: var(--text-primary);
+html,
+body,
+[class*="css"],
+p,
+span,
+label,
+div,
+small,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #FFFFFF !important;
     font-family: "Inter", "Segoe UI", sans-serif;
 }
 
@@ -74,7 +86,7 @@ html, body, [class*="css"] {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 .hero p {
-    color: #F8F5F2;
+    color: #FFFFFF;
     font-size: 1.02rem;
     max-width: 620px;
     margin: 0 auto;
@@ -94,8 +106,11 @@ html, body, [class*="css"] {
     box-shadow: 0 8px 28px rgba(16,185,129,0.12);
 }
 .suggestion-card__icon { font-size: 1.4rem; }
-.suggestion-card__title { font-weight: 600; margin-top: 6px; }
-
+.suggestion-card__title {
+    font-weight: 600;
+    margin-top: 6px;
+    color: #FFFFFF;
+}
 /* ---------- Status bar / sidebar footer ---------- */
 .status-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0 18px 0; }
 .status-chip {
@@ -159,17 +174,25 @@ html, body, [class*="css"] {
     display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
 }
 .sidebar-brand__name { font-weight: 700; font-size: 1.02rem; line-height: 1.1; }
-.sidebar-brand__tag { font-size: 0.72rem; color: var(--text-secondary); }
+.sidebar-brand__tag {
+    font-size: 0.72rem;
+    color: #FFFFFF;
+}
 .sidebar-section-title {
-    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--text-secondary); margin: 14px 0 6px 2px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    margin: 14px 0 6px 2px;
 }
 .doc-item {
     display: flex; justify-content: space-between; font-size: 0.82rem;
     padding: 6px 8px; border-radius: 8px; margin-bottom: 4px;
     background: rgba(255,255,255,0.02);
 }
-.doc-item__pages { color: var(--text-secondary); }
+.doc-item__pages {
+    color: #FFFFFF;
+}
 </style>
 """
 
