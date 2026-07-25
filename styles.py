@@ -292,6 +292,3 @@ div.st-emotion-cache-qdbtli {
 
 def inject_theme():
     st.markdown(THEME_CSS, unsafe_allow_html=True)
-
-# حقل الشات
-st.chat_input("Ask anything about your financial documents...")
