@@ -7,17 +7,17 @@ import streamlit as st
 THEME_CSS = """
 <style>
 :root {
-    --bg-primary: #2B1B22;
-    --bg-secondary: #3E2723;
+    --bg-primary: #2C221D;
+    --bg-secondary: #3E2F28;
 
-    --glass-bg: rgba(72, 45, 55, 0.85);
-    --glass-border: #8D6E63;
+    --glass-bg: rgba(62, 47, 40, 0.90);
+    --glass-border: #8B6B5C;
 
-    --primary: #B76E79;
-    --accent: #D4A373;
+    --emerald: #C49A6C;
+    --navy: #8B6B5C;
 
     --text-primary: #FFFFFF;
-    --text-secondary: #F3F4F6;
+    --text-secondary: #F8F5F2;
 
     --radius: 16px;
 }
@@ -67,12 +67,18 @@ html, body, [class*="css"] {
 /* ---------- Dashboard hero ---------- */
 .hero { text-align: center; padding: 2.5rem 0 1.5rem 0; }
 .hero h1 {
-    font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem;
-    background: linear-gradient(90deg, #E5E7EB, var(--emerald) 55%, var(--navy));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
-.hero p { color: var(--text-secondary); font-size: 1.02rem; max-width: 620px; margin: 0 auto; }
-
+.hero p {
+    color: #F8F5F2;
+    font-size: 1.02rem;
+    max-width: 620px;
+    margin: 0 auto;
+}
 /* ---------- Suggestion cards ---------- */
 .suggestion-card {
     background: var(--glass-bg);
