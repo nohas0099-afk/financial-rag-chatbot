@@ -273,6 +273,10 @@ h6 {
 .main .block-container {
     background: transparent !important;
 }
+/* المنطقة البيضاء أسفل الشات */
+div.st-emotion-cache-qdbtli {
+    background: #A67C6B !important;
+}
 </style>
 """
 
