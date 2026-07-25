@@ -265,6 +265,14 @@ h6 {
     color: #FFFFFF !important;
     border: 1px solid #C2A38F !important;
 }
+/* إزالة الخلفية البيضاء بالكامل */
+[data-testid="stAppViewContainer"] > .main {
+    background: transparent !important;
+}
+
+.main .block-container {
+    background: transparent !important;
+}
 </style>
 """
 
